@@ -14,7 +14,7 @@ This template contains an example .NET 8 [Blazor WebAssembly](https://docs.micro
 
 Once you clone the project, open the solution in the latest release of [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) with the Azure workload installed, and follow these steps:
 
-1. Right-click on the solution and select **Set Startup Projects...**.
+1. Right-click on the solution and select **Configure Startup Projects...**.
 
 1. Select **Multiple startup projects** and set the following actions for each project:
     - *Api* - **Start**
