@@ -1,17 +1,18 @@
 using System.Net;
+using BlazorApp.Shared;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
 namespace Api
 {
-    public class WeatherForecastFunction
+    public class HttpTrigger
     {
         private readonly ILogger _logger;
 
-        public WeatherForecastFunction(ILoggerFactory loggerFactory)
+        public HttpTrigger(ILoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.CreateLogger<WeatherForecastFunction>();
+            _logger = loggerFactory.CreateLogger<HttpTrigger>();
         }
 
         [Function("WeatherForecast")]
@@ -29,12 +30,14 @@ namespace Api
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.WriteAsJsonAsync(result);
+
             return response;
         }
 
         private string GetSummary(int temp)
         {
             var summary = "Mild";
+
             if (temp >= 32)
             {
                 summary = "Hot";
@@ -47,15 +50,8 @@ namespace Api
             {
                 summary = "Freezing";
             }
-            return summary;
-        }
 
-        public class WeatherForecast
-        {
-            public DateOnly Date { get; set; }
-            public int TemperatureC { get; set; }
-            public string Summary { get; set; }
-            public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+            return summary;
         }
     }
 }
