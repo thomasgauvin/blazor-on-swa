@@ -45,7 +45,7 @@ Once you clone the project, open the solution in the latest release of [Visual S
 
     In another terminal, run:
     ```bash
-    swa start http://localhost:5256 --api-location http://localhost:7071
+    swa start http://localhost:5000 --api-location http://localhost:7071
     ```
 
     The Static Web Apps CLI (`swa`) starts a proxy on port 4280 that will forward static site requests to the Blazor server on port 5000 and requests to the `/api` endpoint to the Functions server. 
